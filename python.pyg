@@ -1,0 +1,36 @@
+---
+INFO:
+    title: "A simple template for python project"
+    author: "Alexandre LM"
+    date: "18/08/2015"
+    version: 0.1
+    description: "This template is for a simple python project"
+    source: "http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/"
+---
+VAR:
+    project_name: "The project name"
+    module_name: "The module name"
+---
+TREE:
+- {{project_name}}:
+    - LICENSE
+    - README.md
+    - TODO.md
+    - docs:
+        - conf.py
+        - generated
+        - index.rst
+        - installation.rst
+        - module.rst
+        - quickstart.rst
+        - {{project_name}}.rst
+    - requirements.txt
+    - {{module_name}}:
+        - __init__.py
+        - exception.py
+        - model.py
+        - {{module_name}}.py
+        - test: 
+           - models.py
+           - test_{{module_name}}.py
+    - setup.py
