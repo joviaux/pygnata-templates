@@ -1,0 +1,71 @@
+---
+INFO:
+    title: "A simple template for large python Flask project"
+    author: "Alexandre LM"
+    date: "18/08/2015"
+    version: 0.1
+    description: "This template is use for large Flask application"
+    source: "https://github.com/imwilsonxu/fbone"
+---
+VAR:
+    flask_project_name: "The project name"
+    module_name: "The module name"
+    blueprints: "The bluprints list (separate by semi-colon)"
+---
+TREE:
+- {{flask_project_name}}:
+  - fabfile.py
+  - CHANGES
+  - LICENSE
+  - setup.py
+  - README.markdown
+  - app.wsgi
+  - {{module_name}}:
+    - templates:
+      - frontend:
+        - a_page.html
+      - errors:
+        - forbidden_page.html
+        - page_not_found.html
+        - layout.html
+        - server_error.html
+      - admin:
+        - layout.html
+        - index.html
+      - user:
+        - profile.html
+        - index.html
+      - layouts:
+        - base.html
+      - index.html
+    {% for blueprint in blueprints %}
+    - {{blueprint}}:
+        - __init__.py
+        - views.py
+    {% endfor %}
+    - static:
+      - img:
+        - img_here.txt
+      - js:
+        - main.js
+      - robots.txt
+      - css:
+        - main.css
+        - error.css
+      - crossdomain.xml
+      - humans.txt
+    - translations:
+      - fr:
+        - LC_MESSAGES:
+          - messages.po
+    - extensions.py
+    - config.py
+    - decorators.py
+    - utils.py
+    - app.py
+    - __init__.py
+  - tests:
+    - test_models.py
+    - __init__.py
+  - MANIFEST.in
+  - manage.py
